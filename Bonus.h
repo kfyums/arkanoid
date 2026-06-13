@@ -1,12 +1,13 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+class Game; 
 class Bonus
 {
 public:
     sf::CircleShape shape;
-    int type;
-    bool active;
-    Bonus(float x, float y, int t);
-    void move();
+    bool active = true;
+    virtual ~Bonus() = default;
+    virtual void move();
+    virtual void apply(Game& game) = 0;
 };
