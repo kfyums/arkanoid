@@ -10,6 +10,8 @@
 class Game
 {
 private:
+    static constexpr float WINDOW_WIDTH = 800.f;
+    static constexpr float WINDOW_HEIGHT = 600.f;
     sf::RenderWindow window;
     Paddle paddle;
     std::vector<Ball> balls;
@@ -18,6 +20,7 @@ private:
     bool bottomBonus;
     bool sticky;
     int score;
+
 public:
     Game();
     void createBlocks();
@@ -25,9 +28,12 @@ public:
     void update();
     void render();
     void processBonuses();
+    void cleanup();
     void run();
     Paddle& getPaddle();
     std::vector<Ball>& getBalls();
     void setSticky(bool value);
     void setBottomBonus(bool value);
+    float getWidth() const;
+    float getHeight() const;
 };
